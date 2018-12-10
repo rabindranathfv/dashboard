@@ -6,11 +6,16 @@ import { AppComponent } from './app.component';
 
 // Angular Material stuff
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSidenavModule, MatToolbarModule, MatMenuModule } from '@angular/material';
+import { MatSidenavModule, MatToolbarModule, MatMenuModule, MatGridListModule, MatIconModule, MatCardModule } from '@angular/material';
 
+// components
+import { NavbarComponent } from '../app/layouts/full/navbar/navbar.component';
+import { SidebarComponent } from '../app/layouts/full/sidebar/sidebar.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SidebarComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -18,7 +23,10 @@ import { MatSidenavModule, MatToolbarModule, MatMenuModule } from '@angular/mate
     BrowserAnimationsModule,
     MatSidenavModule,
     MatToolbarModule,
-    MatMenuModule
+    MatMenuModule,
+    MatIconModule,
+    MatGridListModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
