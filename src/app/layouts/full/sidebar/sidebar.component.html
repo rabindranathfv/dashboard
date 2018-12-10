@@ -1,10 +1,8 @@
 <mat-grid-list cols="1" rowHeight="2:1" role="heading">
     <mat-toolbar>
-        <span>Application Title</span>
-
-        <!-- This fills the remaining space of the current row -->
-        <span class="example-fill-remaining-space"></span>
-
-        <span>Right Aligned Text</span>
+        <div>
+            <span class="side-opts" [routerLink]="['home']">Application Title</span>
+            <span class="side-opts" [routerLink]="['graphics']">Right Aligned Text</span>
+        </div>
     </mat-toolbar>
 </mat-grid-list>

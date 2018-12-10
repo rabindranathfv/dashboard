@@ -9,7 +9,7 @@ import { GraphicsContentComponent } from './layouts/full/graphics-content/graphi
 
 const routes: Routes = [
   { path: 'home', component: DashboardMainComponent },
-  { path: 'graphics', component: GraphicsContentComponent }
+  { path: 'graphics', component: GraphicsContentComponent },
   { path: '**' , pathMatch: 'full', redirectTo: 'home'},
   { path: '', pathMatch: 'full', redirectTo: 'home' }
 ];
