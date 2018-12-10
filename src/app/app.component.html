@@ -1,10 +1,43 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<mat-grid-list cols="1" rowHeight="1:1">
-    <!-- <app-navbar></app-navbar> -->
-</mat-grid-list>
+<!-- ============================================================== -->
+<!-- Main wrapper - style you can find in pages.scss -->
+<!-- ============================================================== -->
+<div class="main-container">
+    <!-- ============================================================== -->
+    <!-- Topbar - style you can find in header.scss -->
+    <!-- ============================================================== -->
+    <mat-toolbar color="red">
+        <!-- ============================================================== -->
+        <!-- Logo - style you can find in header.scss -->
+        <!-- ============================================================== -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="">
+                <!-- Logo icon -->
+                <b>
+                    <img src="assets/images/logo-icon.png" alt="homepage" class="dark-logo">
+                </b>
+            </a>
+        </div>
+        <button mat-icon-button (click)="snav.toggle()" value="sidebarclosed">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <app-header></app-header>
+    </mat-toolbar>
 
-<mat-grid-tile-header cols="1" rowHeight="4:2">
-    <!-- <app-sidebar></app-sidebar> -->
-</mat-grid-tile-header>
+    <mat-sidenav-container class="example-sidenav-container">
 
-<router-outlet></router-outlet>
+        <mat-sidenav #snav id="snav">
+            <app-sidebar></app-sidebar>
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+            <div class="page-content">
+
+                <router-outlet>
+                    <app-spinner></app-spinner>
+                </router-outlet>
+
+            </div>
+        </mat-sidenav-content>
+
+    </mat-sidenav-container>
+</div>
