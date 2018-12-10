@@ -25,6 +25,7 @@ import { HeaderComponent } from './layouts/material-components/header/header.com
 import { SpinnerComponent } from './layouts/material-components/spinner/spinner.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { DashboardMainComponent } from './layouts/material-components/dashboard-main/dashboard-main.component';
+import { GraphicsContentComponent } from './layouts/full/graphics-content/graphics-content.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { DashboardMainComponent } from './layouts/material-components/dashboard-
     NavbarComponent,
     HeaderComponent,
     SpinnerComponent,
-    DashboardMainComponent
+    DashboardMainComponent,
+    GraphicsContentComponent
   ],
   imports: [
     BrowserModule,
