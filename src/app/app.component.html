@@ -1,7 +1,7 @@
 <!-- ============================================================== -->
 <!-- Main wrapper - style you can find in pages.scss -->
 <!-- ============================================================== -->
-<div class="main-container">
+<div>
     <!-- ============================================================== -->
     <!-- Topbar - style you can find in header.scss -->
     <!-- ============================================================== -->
@@ -17,13 +17,30 @@
                 </b>
             </a>
         </div>
-        <button mat-icon-button (click)="snav.toggle()" value="sidebarclosed">
+        <!-- <button mat-icon-button (click)="snav.toggle()" value="sidebarclosed">
             <mat-icon>menu</mat-icon>
-        </button>
+        </button> -->
         <app-header></app-header>
     </mat-toolbar>
 
-    <mat-sidenav-container class="example-sidenav-container">
+
+
+    <mat-grid-list cols="2" rowHeight="2:3" class="sidebar-content">
+        <!--  -->
+
+        <div class="sidebard-content">
+            <app-sidebar></app-sidebar>
+        </div>
+
+        <div class="main-content">
+            <router-outlet>
+                <app-dashboard-main></app-dashboard-main>
+            </router-outlet>
+        </div>
+
+    </mat-grid-list>
+
+    <!-- <mat-sidenav-container class="example-sidenav-container">
 
         <mat-sidenav #snav id="snav">
             <app-sidebar></app-sidebar>
@@ -33,11 +50,11 @@
             <div class="page-content">
 
                 <router-outlet>
-                    <!-- <app-spinner></app-spinner> -->
+                    <app-spinner></app-spinner>
                 </router-outlet>
 
             </div>
         </mat-sidenav-content>
 
-    </mat-sidenav-container>
+    </mat-sidenav-container> -->
 </div>

@@ -12,7 +12,9 @@ import {
   MatIconModule,
   MatMenuModule,
   MatSidenavModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatButtonModule,
+  MatDividerModule
 } from '@angular/material';
 
 
@@ -21,6 +23,8 @@ import { NavbarComponent } from '../app/layouts/full/navbar/navbar.component';
 import { SidebarComponent } from '../app/layouts/full/sidebar/sidebar.component';
 import { HeaderComponent } from './layouts/material-components/header/header.component';
 import { SpinnerComponent } from './layouts/material-components/spinner/spinner.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { DashboardMainComponent } from './layouts/material-components/dashboard-main/dashboard-main.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,8 @@ import { SpinnerComponent } from './layouts/material-components/spinner/spinner.
     SidebarComponent,
     NavbarComponent,
     HeaderComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    DashboardMainComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +44,10 @@ import { SpinnerComponent } from './layouts/material-components/spinner/spinner.
     MatMenuModule,
     MatIconModule,
     MatGridListModule,
-    MatCardModule
+    MatCardModule,
+    MatButtonModule,
+    LayoutModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

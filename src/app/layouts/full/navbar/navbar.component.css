@@ -1,0 +1,13 @@
+.m-1 {
+    margin: 3px 3px 3px 3px;
+}
+
+.btn-help {
+    margin-right: 0%;
+    right: 0;
+    position: absolute;
+}
+
+.btn-navbar {
+    position: relative;
+}
