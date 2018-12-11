@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-
+import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
@@ -1009,4 +1009,24 @@ export class MachineService {
   ];
 
   constructor() { }
+
+  public getBasicInfo() {
+    const machineBasicInfo: any[] = [];
+    let machineObj: Object;
+    return this.machineData.map( (resp: any) => {
+       machineObj = { 'date': resp.date, 'time': resp.time, 'ip': resp.ip };
+      //  console.log(machineObj);
+       return machineBasicInfo.push(machineObj);
+    });
+  }
+
+  public frecuencyByIp() {
+    const machineDetailInfo: any[] = [];
+    let machineObjByIp: Object;
+    return this.machineData.map( (resp: any) => {
+      machineObjByIp = { 'ip': resp.ip, 'frec': resp.frec};
+      console.log(machineObjByIp);
+      return machineDetailInfo.push(machineObjByIp);
+    });
+  }
 }

@@ -1,13 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
+
+// services
+import { MachineService } from '../../../services/machine.service';
 
 @Component({
   selector: 'app-dashboard-main',
   templateUrl: './dashboard-main.component.html',
   styleUrls: ['./dashboard-main.component.css'],
 })
-export class DashboardMainComponent {
+export class DashboardMainComponent implements OnInit {
   /** Based on the screen size, switch from standard to one column per row */
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map(({ matches }) => {
@@ -29,5 +32,15 @@ export class DashboardMainComponent {
     })
   );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  machineBasicInfo: any[] = [];
+  machineDetailsByIp: any[] = [];
+  constructor(private breakpointObserver: BreakpointObserver,
+              private _machineService: MachineService
+  ) {
+    this.machineBasicInfo = this._machineService.getBasicInfo();
+    // console.log(this.machineData);
+    this.machineDetailsByIp = this._machineService.frecuencyByIp();
+  }
+
+  ngOnInit() { }
 }
