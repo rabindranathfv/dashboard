@@ -36,16 +36,43 @@ export class DashboardMainComponent implements OnInit {
   // <i class="material-icons">devices_other </i>
   // <i class="material-icons"> repeat </i>
   machineBasicInfo: any[] = [];
-  machineDetailsByIp: any[] = [];
+  machineDetails: any[] = [];
   constructor(private breakpointObserver: BreakpointObserver,
               private _machineService: MachineService
   ) {
-    this.machineBasicInfo = this._machineService.getBasicInfo();
-    console.log(`data basica`);
-    console.log(this._machineService.getBasicInfo());
-    this.machineDetailsByIp = this._machineService.frecuencyByIp();
-    console.log(`data especifica`);
-    console.log(this.machineDetailsByIp);
+    // apply SORT for IP's in Ipv4 Formats
+    this.machineBasicInfo = this._machineService.getBasicInfo().sort( (prev, current) => {
+      prev = prev['ip'].split('.');
+      current = current['ip'].split('.');
+      for (let i = 0; i < prev.length; i++) {
+        prev[i] = parseInt( prev[i], 10);
+        current[i] = parseInt( current[i], 10);
+        if ( prev[i] < current[i] ) {
+            return -1;
+        } else if ( prev[i] > current[i] ) {
+            return 1;
+        }
+      }
+      return 0;
+    });
+    // console.log(`data basica`);
+    // console.log(this.machineBasicInfo);
+    this.machineDetails = this._machineService.frecuencyByIp().sort( (prev, current) => {
+      prev = prev['ip'].split('.');
+      current = current['ip'].split('.');
+      for (let i = 0; i < prev.length; i++) {
+        prev[i] = parseInt( prev[i], 10);
+        current[i] = parseInt( current[i], 10);
+        if ( prev[i] < current[i] ) {
+            return -1;
+        } else if ( prev[i] > current[i] ) {
+            return 1;
+        }
+      }
+      return 0;
+    });
+    // console.log(`data especifica`);
+    // console.log(this.machineDetails);
   }
 
   ngOnInit() { }
