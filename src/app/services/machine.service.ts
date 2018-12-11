@@ -1017,6 +1017,7 @@ export class MachineService {
        machineObj = { 'date': resp.date, 'time': resp.time, 'ip': resp.ip };
       //  console.log(machineObj);
        return machineBasicInfo.push(machineObj);
+      //  console.log(machineBasicInfo);
     });
   }
 
@@ -1025,8 +1026,9 @@ export class MachineService {
     let machineObjByIp: Object;
     return this.machineData.map( (resp: any) => {
       machineObjByIp = { 'ip': resp.ip, 'frec': resp.frec};
-      console.log(machineObjByIp);
+      // console.log(machineObjByIp);
       return machineDetailInfo.push(machineObjByIp);
+      //console.log(machineDetailInfo);
     });
   }
 }
