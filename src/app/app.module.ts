@@ -4,6 +4,9 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+// services
+import { MachineService } from './services/machine.service';
+
 // Angular Material stuff
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
@@ -22,7 +25,6 @@ import {
 import { NavbarComponent } from '../app/layouts/full/navbar/navbar.component';
 import { SidebarComponent } from '../app/layouts/full/sidebar/sidebar.component';
 import { HeaderComponent } from './layouts/material-components/header/header.component';
-import { SpinnerComponent } from './layouts/material-components/spinner/spinner.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { DashboardMainComponent } from './layouts/material-components/dashboard-main/dashboard-main.component';
 import { GraphicsContentComponent } from './layouts/full/graphics-content/graphics-content.component';
@@ -33,7 +35,6 @@ import { GraphicsContentComponent } from './layouts/full/graphics-content/graphi
     SidebarComponent,
     NavbarComponent,
     HeaderComponent,
-    SpinnerComponent,
     DashboardMainComponent,
     GraphicsContentComponent
   ],
@@ -51,7 +52,9 @@ import { GraphicsContentComponent } from './layouts/full/graphics-content/graphi
     LayoutModule,
     MatDividerModule
   ],
-  providers: [],
+  providers: [
+    MachineService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
