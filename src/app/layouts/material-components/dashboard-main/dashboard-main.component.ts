@@ -12,31 +12,33 @@ import { MachineService } from '../../../services/machine.service';
 })
 export class DashboardMainComponent implements OnInit {
   /** Based on the screen size, switch from standard to one column per row */
-  cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
-    map(({ matches }) => {
-      if (matches) {
-        return [
-          { title: 'Card 1', cols: 1, rows: 1 },
-          { title: 'Card 2', cols: 1, rows: 1 },
-          { title: 'Card 3', cols: 1, rows: 1 },
-          { title: 'Card 4', cols: 1, rows: 1 }
-        ];
-      }
+  // cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
+  //   map(({ matches }) => {
+  //     if (matches) {
+  //       return [
+  //         { title: 'General', cols: 1, rows: 1 },
+  //         { title: 'Devices', cols: 1, rows: 1 },
+  //         { title: 'Card 2', cols: 1, rows: 1 },
+  //         { title: 'Card 4', cols: 1, rows: 1 }
+  //       ];
+  //     }
 
-      return [
-        { title: 'Card 1', cols: 2, rows: 1 },
-        { title: 'Card 2', cols: 1, rows: 1 },
-        { title: 'Card 3', cols: 1, rows: 2 },
-        { title: 'Card 4', cols: 1, rows: 1 }
-      ];
-    })
-  );
+  //     return [
+  //       { title: 'General', cols: 2, rows: 1 },
+  //       { title: 'Devices', cols: 2, rows: 1 },
+  //       { title: 'Card 2', cols: 1, rows: 1 },
+  //       { title: 'Card 4', cols: 1, rows: 1 }
+  //     ];
+  //   })
+  // );
   // <i class="material-icons"> date_range </i>
   // <i class="material-icons">av_timer </i>
   // <i class="material-icons">devices_other </i>
   // <i class="material-icons"> repeat </i>
   machineBasicInfo: any[] = [];
   machineDetails: any[] = [];
+  headerBasicInfo: string[] = ['device', 'date', 'time'];
+  fheaderDetailsInfo: string[] = [ 'device', 'frecuency'];
   constructor(private breakpointObserver: BreakpointObserver,
               private _machineService: MachineService
   ) {

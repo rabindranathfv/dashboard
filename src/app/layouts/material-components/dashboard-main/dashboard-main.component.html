@@ -1,24 +1,29 @@
 <div class="grid-container">
     <h1 class="mat-h1">Dashboard</h1>
     <mat-grid-list cols="2" rowHeight="350px">
-        <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
-            <mat-card class="dashboard-card">
-                <mat-card-header>
-                    <mat-card-title>
-                        {{card.title}}
-                        <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-              <mat-icon>more_vert</mat-icon>
-            </button>
-                        <mat-menu #menu="matMenu" xPosition="before">
-                            <button mat-menu-item>Expand</button>
-                            <button mat-menu-item>Remove</button>
-                        </mat-menu>
-                    </mat-card-title>
-                </mat-card-header>
-                <mat-card-content class="dashboard-card-content">
-                    <div>Card Content Here</div>
-                </mat-card-content>
-            </mat-card>
-        </mat-grid-tile>
+
+        <table mat-table [dataSource]="machineBasicInfo" class="mat-elevation-z8">
+            <!-- Device Column -->
+            <ng-container matColumnDef="device">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Device</th>
+                <td mat-cell *matCellDef="let machine">{{ machine.ip }}</td>
+            </ng-container>
+
+            <!-- Date Column -->
+            <ng-container matColumnDef="date">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Date</th>
+                <td mat-cell *matCellDef="let machine">{{ machine.date }}</td>
+            </ng-container>
+
+            <!-- time Column -->
+            <ng-container matColumnDef="time">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Time</th>
+                <td mat-cell *matCellDef="let machine">{{ machine.time }}</td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="headerBasicInfo"></tr>
+            <tr mat-row *matRowDef="let row; columns: headerBasicInfo;"></tr>
+        </table>
+
     </mat-grid-list>
 </div>

@@ -17,7 +17,9 @@ import {
   MatSidenavModule,
   MatToolbarModule,
   MatButtonModule,
-  MatDividerModule
+  MatDividerModule,
+  MatTableModule,
+  MatPaginatorModule
 } from '@angular/material';
 
 
@@ -50,7 +52,9 @@ import { GraphicsContentComponent } from './layouts/full/graphics-content/graphi
     MatCardModule,
     MatButtonModule,
     LayoutModule,
-    MatDividerModule
+    MatDividerModule,
+    MatTableModule,
+    MatPaginatorModule
   ],
   providers: [
     MachineService
