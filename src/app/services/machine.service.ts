@@ -1013,22 +1013,22 @@ export class MachineService {
   public getBasicInfo() {
     const machineBasicInfo: any[] = [];
     let machineObj: Object;
-    return this.machineData.map( (resp: any) => {
-       machineObj = { 'date': resp.date, 'time': resp.time, 'ip': resp.ip };
-      //  console.log(machineObj);
-       return machineBasicInfo.push(machineObj);
-      //  console.log(machineBasicInfo);
+    machineObj = this.machineData.map( (resp: any) => {
+       return { 'date': resp.date, 'time': resp.time, 'ip': resp.ip };
     });
+    machineBasicInfo.push(machineObj);
+    // console.log(machineBasicInfo);
+    return machineBasicInfo;
   }
 
   public frecuencyByIp() {
     const machineDetailInfo: any[] = [];
     let machineObjByIp: Object;
-    return this.machineData.map( (resp: any) => {
-      machineObjByIp = { 'ip': resp.ip, 'frec': resp.frec};
-      // console.log(machineObjByIp);
-      return machineDetailInfo.push(machineObjByIp);
-      //console.log(machineDetailInfo);
+    machineObjByIp = this.machineData.map( (resp: any) => {
+      return { 'ip': resp.ip, 'frec': resp.frec};
     });
+    machineDetailInfo.push(machineObjByIp);
+    // console.log(machineDetailInfo);
+    return machineDetailInfo;
   }
 }

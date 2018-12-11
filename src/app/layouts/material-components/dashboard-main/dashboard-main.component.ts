@@ -31,15 +31,21 @@ export class DashboardMainComponent implements OnInit {
       ];
     })
   );
-
+  // <i class="material-icons"> date_range </i>
+  // <i class="material-icons">av_timer </i>
+  // <i class="material-icons">devices_other </i>
+  // <i class="material-icons"> repeat </i>
   machineBasicInfo: any[] = [];
   machineDetailsByIp: any[] = [];
   constructor(private breakpointObserver: BreakpointObserver,
               private _machineService: MachineService
   ) {
     this.machineBasicInfo = this._machineService.getBasicInfo();
-    // console.log(this.machineData);
+    console.log(`data basica`);
+    console.log(this._machineService.getBasicInfo());
     this.machineDetailsByIp = this._machineService.frecuencyByIp();
+    console.log(`data especifica`);
+    console.log(this.machineDetailsByIp);
   }
 
   ngOnInit() { }
