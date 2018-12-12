@@ -19,6 +19,9 @@ import { DashboardMainComponent } from './layouts/material-components/dashboard-
 import { GraphicsContentComponent } from './layouts/full/graphics-content/graphics-content.component';
 import { MaterialModule } from './material/material.module';
 
+// import d3
+import { scaleLinear } from "d3-scale";
+
 @NgModule({
   declarations: [
     AppComponent,

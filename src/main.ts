@@ -7,7 +7,6 @@ import { environment } from './environments/environment';
 
 // import hammer js for material
 import 'hammerjs';
-
 if (environment.production) {
   enableProdMode();
 }
