@@ -11,37 +11,19 @@ import { MachineService } from '../../../services/machine.service';
   styleUrls: ['./dashboard-main.component.css'],
 })
 export class DashboardMainComponent implements OnInit {
-  /** Based on the screen size, switch from standard to one column per row */
-  // cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
-  //   map(({ matches }) => {
-  //     if (matches) {
-  //       return [
-  //         { title: 'General', cols: 1, rows: 1 },
-  //         { title: 'Devices', cols: 1, rows: 1 },
-  //         { title: 'Card 2', cols: 1, rows: 1 },
-  //         { title: 'Card 4', cols: 1, rows: 1 }
-  //       ];
-  //     }
 
-  //     return [
-  //       { title: 'General', cols: 2, rows: 1 },
-  //       { title: 'Devices', cols: 2, rows: 1 },
-  //       { title: 'Card 2', cols: 1, rows: 1 },
-  //       { title: 'Card 4', cols: 1, rows: 1 }
-  //     ];
-  //   })
-  // );
   // <i class="material-icons"> date_range </i>
   // <i class="material-icons">av_timer </i>
   // <i class="material-icons">devices_other </i>
   // <i class="material-icons"> repeat </i>
   machineBasicInfo: any[] = [];
   machineDetails: any[] = [];
-  headerBasicInfo: string[] = ['device', 'date', 'time'];
-  fheaderDetailsInfo: string[] = [ 'device', 'frecuency'];
-  constructor(private breakpointObserver: BreakpointObserver,
-              private _machineService: MachineService
-  ) {
+  constructor(private _machineService: MachineService) {
+    this.loadBasicInfo();
+    this.loadDetailInfo();
+  }
+
+  loadBasicInfo() {
     // apply SORT for IP's in Ipv4 Formats
     this.machineBasicInfo = this._machineService.getBasicInfo().sort( (prev, current) => {
       prev = prev['ip'].split('.');
@@ -59,6 +41,9 @@ export class DashboardMainComponent implements OnInit {
     });
     // console.log(`data basica`);
     // console.log(this.machineBasicInfo);
+  }
+
+  loadDetailInfo() {
     this.machineDetails = this._machineService.frecuencyByIp().sort( (prev, current) => {
       prev = prev['ip'].split('.');
       current = current['ip'].split('.');
@@ -76,6 +61,5 @@ export class DashboardMainComponent implements OnInit {
     // console.log(`data especifica`);
     // console.log(this.machineDetails);
   }
-
   ngOnInit() { }
 }

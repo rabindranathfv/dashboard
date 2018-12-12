@@ -9,19 +9,6 @@ import { MachineService } from './services/machine.service';
 
 // Angular Material stuff
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {
-  MatCardModule,
-  MatGridListModule,
-  MatIconModule,
-  MatMenuModule,
-  MatSidenavModule,
-  MatToolbarModule,
-  MatButtonModule,
-  MatDividerModule,
-  MatTableModule,
-  MatPaginatorModule
-} from '@angular/material';
-
 
 // components
 import { NavbarComponent } from '../app/layouts/full/navbar/navbar.component';
@@ -30,6 +17,7 @@ import { HeaderComponent } from './layouts/material-components/header/header.com
 import { LayoutModule } from '@angular/cdk/layout';
 import { DashboardMainComponent } from './layouts/material-components/dashboard-main/dashboard-main.component';
 import { GraphicsContentComponent } from './layouts/full/graphics-content/graphics-content.component';
+import { MaterialModule } from './material/material.module';
 
 @NgModule({
   declarations: [
@@ -44,17 +32,8 @@ import { GraphicsContentComponent } from './layouts/full/graphics-content/graphi
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatSidenavModule,
-    MatToolbarModule,
-    MatMenuModule,
-    MatIconModule,
-    MatGridListModule,
-    MatCardModule,
-    MatButtonModule,
-    LayoutModule,
-    MatDividerModule,
-    MatTableModule,
-    MatPaginatorModule
+    MaterialModule,
+    LayoutModule
   ],
   providers: [
     MachineService
