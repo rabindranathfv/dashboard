@@ -1014,22 +1014,19 @@ export class MachineService {
   constructor() { }
 
   public getBasicInfo() {
-    const machineBasicInfo: any[] = [];
-    let machineObj: Object;
-    machineObj = this.machineData.map( (resp: any) => {
+    let machineBasicInfo: any[] = [];
+    // let machineObj;
+    machineBasicInfo = this.machineData.map( (resp: any) => {
        return { 'date': resp.date, 'time': resp.time, 'ip': resp.ip };
     });
-    machineBasicInfo.push(machineObj);
     return machineBasicInfo;
   }
 
   public frecuencyByIp() {
-    const machineDetailInfo: any[] = [];
-    let machineObjByIp: Object;
-    machineObjByIp = this.machineData.map( (resp: any) => {
+    let machineDetailInfo: any[] = [];
+    machineDetailInfo = this.machineData.map( (resp: any) => {
       return { 'ip': resp.ip, 'frec': resp.frec};
     });
-    machineDetailInfo.push(machineObjByIp);
     // sort highest to Lowest
     return machineDetailInfo.sort((prev, current) => current.frec - prev.frec);
   }

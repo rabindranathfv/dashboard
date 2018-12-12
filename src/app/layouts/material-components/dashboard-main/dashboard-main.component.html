@@ -1,8 +1,52 @@
-<div class="grid-container">
-    <h1 class="mat-h1">Dashboard</h1>
-    <mat-grid-list cols="2" rowHeight="350px">
-        <div *ngIf="machineBasicInfo">
-
+<div class="container">
+    <h2>Dashboard</h2>
+    <div *ngIf="machineBasicInfo">
+        <div class="row">
+            <div class="col">
+                <h3 class="text-center">Info By Device</h3>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Device</th>
+                            <th>Time</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let machine of machineBasicInfo;">
+                        <tr>
+                            <td>{{ machine.ip }}</td>
+                            <td>{{ machine.time }}</td>
+                            <td>{{ machine.date }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </mat-grid-list>
+    </div>
+
+    <hr class="divider">
+    <!-- info details -->
+
+    <div *ngIf="machineBasicInfo">
+        <div class="row">
+            <div class="col">
+                <h3 class="text-center">Frecuency of Devices</h3>
+                <table class="table table-dark">
+                    <thead>
+                        <tr>
+                            <th>Device</th>
+                            <th>Frecuency</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let machine of machineDetails;">
+                        <tr>
+                            <td>{{ machine.ip }}</td>
+                            <td>{{ machine.frec }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
 </div>
