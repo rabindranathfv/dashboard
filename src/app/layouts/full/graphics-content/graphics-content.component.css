@@ -1,5 +1,8 @@
-.card {
+.svg {
     margin-top: 20px;
     width: 800px !important;
     height: 400px !important;
+    border: 3px solid green;
+    background-image: linear-gradient(to right, black, white);
+    transform-origin: 0 0;
 }

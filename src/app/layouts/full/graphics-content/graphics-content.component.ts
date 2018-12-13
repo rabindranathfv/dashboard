@@ -16,38 +16,50 @@ export class GraphicsContentComponent implements OnInit, AfterContentInit {
     // using d3.js
   ngAfterContentInit() {
     // data test 0 2 8 1 2
-    let currentX = 100;
-    let currentY = 55;
+    let initialX = 15;
+    let deltaX = 25;
+    let initialY = 15;
+    let deltaY = 25;
+
+    let currentX = initialX;
+    let currentY = initialY;
 
     let svg = d3.select('.card')
                 .append('svg')
                 // make zoom
-                .attr('transform', 'scale(1)')
+                // .attr('transform', 'scale(2)')
                 .attr('margin-top', '20px')
                 ;
-    drawCircle(2);
-    drawCircle(8);
-    drawCircle(1);
-    drawCircle(2);
 
-    currentX = 455;
-    currentY += 20;
+    let gCircles = svg.append('g');
+    gCircles.attr('class', 'circleGroup');
 
-    drawRectangule(2);
-    drawRectangule(8);
-    drawRectangule(1);
-    drawRectangule(2);
+    drawCircle(gCircles, 2);
+    drawCircle(gCircles , 8);
+    drawCircle(gCircles, 1);
+    drawCircle(gCircles , 2);
 
-    function drawRectangule(radious) {
-      svg
-        .append('rectangule')
+    currentX = initialX;
+    currentY += deltaY;
+
+    let gRect = svg.append('g');
+    gRect.attr('class', 'rectangleGroup');
+
+    drawRectangule(gRect, 2);
+    drawRectangule(gRect, 8);
+    drawRectangule(gRect, 1);
+    drawRectangule(gRect, 2);
+
+    function drawRectangule(gRect , radious) {
+      gRect
+        .append('rect')
         .attr('fill', 'red')
         .attr('width', 5)
         .attr('height', radious)
         .attr('x', currentX)
         .attr('y', currentY)
         ;
-      svg
+      gRect
         .append('text')
         .text(radious)
         .attr('fill', 'black')
@@ -55,18 +67,18 @@ export class GraphicsContentComponent implements OnInit, AfterContentInit {
         .attr('y', currentY)
         .attr('font-size', '20px')
         ;
-      currentX += 25;
+      currentX += deltaX;
     }
 
-    function drawCircle(radious: number) {
-      svg
+    function drawCircle(gCircles, radious: number) {
+      gCircles
         .append('circle')
         .attr('fill', 'red')
-        .attr('r', radious * 10)
+        .attr('r', Math.sqrt(radious))
         .attr('cx', currentX)
         .attr('cy', currentY)
         ;
-      svg
+      gCircles
         .append('text')
         .text(radious)
         .attr('fill', 'black')
@@ -74,7 +86,7 @@ export class GraphicsContentComponent implements OnInit, AfterContentInit {
         .attr('y', currentY)
         .attr('font-size', '3pt')
         ;
-      currentX += 25;
+      currentX += deltaX;
     }
   }
 
