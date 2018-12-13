@@ -15,7 +15,15 @@ export class GraphicsContentComponent implements OnInit, AfterContentInit {
 
     // using d3.js
   ngAfterContentInit() {
-    d3.select('p').style('color', 'red');
+    // data test 0 2 8 1 2
+    d3.select('.col')
+    .append('svg')
+    .append('circle')
+    .attr('fill', 'red')
+    .attr('r', 100)
+    .attr('cx', 150)
+    .attr('cy', 150)
+    ;
   }
 
 }
