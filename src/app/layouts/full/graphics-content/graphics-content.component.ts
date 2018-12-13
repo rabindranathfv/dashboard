@@ -15,7 +15,7 @@ export class GraphicsContentComponent implements OnInit, AfterContentInit {
 
     // using d3.js
   ngAfterContentInit() {
-    // data test 0 2 8 1 2
+    let data = [0, 2, 8, 1, 2 ];
     let initialX = 15;
     let deltaX = 25;
     let initialY = 15;
@@ -34,10 +34,12 @@ export class GraphicsContentComponent implements OnInit, AfterContentInit {
     let gCircles = svg.append('g');
     gCircles.attr('class', 'circleGroup');
 
-    drawCircle(gCircles, 2);
-    drawCircle(gCircles , 8);
-    drawCircle(gCircles, 1);
-    drawCircle(gCircles , 2);
+    data.forEach( val => drawCircle(gCircles, val));
+
+    // drawCircle(gCircles, 2);
+    // drawCircle(gCircles , 8);
+    // drawCircle(gCircles, 1);
+    // drawCircle(gCircles , 2);
 
     currentX = initialX;
     currentY += deltaY;
@@ -45,10 +47,11 @@ export class GraphicsContentComponent implements OnInit, AfterContentInit {
     let gRect = svg.append('g');
     gRect.attr('class', 'rectangleGroup');
 
-    drawRectangule(gRect, 2);
-    drawRectangule(gRect, 8);
-    drawRectangule(gRect, 1);
-    drawRectangule(gRect, 2);
+    data.forEach( val => drawRectangule(gRect, val));
+    // drawRectangule(gRect, 2);
+    // drawRectangule(gRect, 8);
+    // drawRectangule(gRect, 1);
+    // drawRectangule(gRect, 2);
 
     function drawRectangule(gRect , radious) {
       gRect
@@ -74,6 +77,7 @@ export class GraphicsContentComponent implements OnInit, AfterContentInit {
       gCircles
         .append('circle')
         .attr('fill', 'red')
+        // conserve proportion on spaces for the figure
         .attr('r', Math.sqrt(radious))
         .attr('cx', currentX)
         .attr('cy', currentY)

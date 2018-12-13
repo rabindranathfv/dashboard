@@ -6,3 +6,9 @@
     background-image: linear-gradient(to right, black, white);
     transform-origin: 0 0;
 }
+
+g.circleGroup {
+    background-color: blue;
+    fill: purple;
+    border: 2px solid orange;
+}
